@@ -1,13 +1,14 @@
+---
+title: Home
+layout: base
+---
 
-<!DOCTYPE html>
-<html>
-	<head>
-	    <meta charset="utf-8">
-	    <title>小华的主页_(:з」∠)_</title>
-  	</head>
-  	<body>
-        <h1>很高兴见到您 🙂 </h1>
-    	<h1>你好呀~这里是小华的主页，暂时空空如也~ 🥵 </h1>
-		<h1>测试git！ </h1>
-  	</body>
-</html>
+<h1>My Latest Blogs</h1>
+
+<div class="blog-post">
+    {% for post in site.posts limit:5 %}
+    <h2><a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a><h2>
+    <h3><i class="fas fa-calendar-alt"></i> {{ post.date | date_to_long_string }}</h3>
+    <p>{{ post.excerpt }} <a href="{{ post.url | absolute_url }}">[...]</a></p>
+    {% endfor -%}
+</div>
